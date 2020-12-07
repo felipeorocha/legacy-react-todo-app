@@ -14,6 +14,7 @@ class TodoList extends Component {
 
   addTodo = (e, todo) => {
     e.preventDefault();
+    this.setState({ isEditing: false });
 
     if (this.state.isEditing) {
       this.props.editTodo(todo, this.state.todoTextEdit);
@@ -21,7 +22,6 @@ class TodoList extends Component {
       if (this.state.todoText) {
         this.props.addTodo(this.state.todoText);
         this.setState({ todoText: '' });
-        this.setState({ isEditing: false });
       }
     }
   }
@@ -36,7 +36,7 @@ class TodoList extends Component {
 
   editTodo(todo) {
     this.setState({ isEditing: true });
-    this.props.setVisibility(todo)
+    this.props.setVisibility(todo);
   }
 
   render() {
