@@ -14,7 +14,7 @@ export default function todos(state = [], action) {
     case 'EDIT_TODO':
       return state.map(item => item.id !== action.payload.id ? item : { id: action.updated.id, text: action.updated.text, visibility: action.updated.visibility });
     case 'SET_VISIBILITY':
-      return state.map(item => item.id !== action.payload.id ? item : { visibility: action.payload.visibility });
+      return state.map(item => item.id !== action.payload.id ? item : { id: action.payload.id, text: action.payload.text, visibility: action.payload.visibility });
     default:
       return state;
   }
